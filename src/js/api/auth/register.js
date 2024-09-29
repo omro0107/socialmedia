@@ -2,9 +2,6 @@ export async function register({
   name,
   email,
   password,
-  bio,
-  banner,
-  avatar,
 }) {
   try {
     const response = await fetch(`${API_AUTH_REGISTER}`, {
@@ -16,9 +13,6 @@ export async function register({
         name,
         email,
         password,
-        bio,
-        banner,
-        avatar,
       }),
     });
 

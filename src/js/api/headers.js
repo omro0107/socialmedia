@@ -9,9 +9,10 @@ export function headers() {
   }
 
   const accessToken = getToken();
+
   if (accessToken) {
     headers.append("Authorization", `Bearer ${accessToken}`);
   }
-  
+
   return headers;
 }

@@ -1,21 +1,16 @@
 import { API_AUTH_KEY } from "../constants";
+import { headers } from "../headers";
 
-export async function getKey(name) {
+export async function getKey() {
   try {
     const response = await fetch(`${API_AUTH_KEY}`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "X-Noroff-API-Key": "95eba52b-2dfe-4ac9-a86f-2e6c5839164a",
-      },
-      body: JSON.stringify({
-        name,
-      }),
+      headers: headers(),
     });
 
     if (response.ok) {
       const data = await response.json();
-      return data;
+      localStorage.setItem("apiKey", data.key)
     } else {
       throw new Error("Failed to get key");
     }
