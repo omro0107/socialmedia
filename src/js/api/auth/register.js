@@ -1,3 +1,5 @@
+import { API_AUTH_REGISTER } from '../constants';
+
 export async function register({
   name,
   email,

@@ -38,26 +38,3 @@ export async function readPosts(limit = 12, page = 1, tag) {
     throw error;
   }
 }
-
-export async function readPostsByUser(username, limit = 12, page = 1, tag) {
-  try {
-    const params = new URLSearchParams();
-    params.set('limit', limit);
-    params.set('page', page);
-    if (tag) {
-      params.set('tag', tag);
-    }
-
-    const response = await fetch(`${API_SOCIAL_POSTS}/user/${username}?${params.toString()}`);
-
-    if (response.ok) {
-      const data = await response.json();
-      return data;
-    } else {
-      throw new Error("Failed to get posts by user");
-    }
-  } catch (error) {
-    console.error(error);
-    throw error;
-  }
-}
