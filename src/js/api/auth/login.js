@@ -20,7 +20,7 @@ export async function login({ email, password }) {
       throw new Error("Invalid email or password");
     }
   } catch (error) {
-    console.error(error);
+    console.error('Error logging in.', error);
     throw error;
   }
 }

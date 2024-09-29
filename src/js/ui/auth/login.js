@@ -9,7 +9,7 @@ export async function onLogin(event) {
   try {
     const data = await login({ email, password });
     localStorage.setItem('accessToken', data.token);
-    window.location.href = '../index.html';
+    window.location.href = '/post/index.html';
   } catch (error) {
     const errorMessage = document.getElementById('error-message');
     errorMessage.textContent = error.message;
