@@ -4,9 +4,7 @@ export async function updatePost(id, { title, body, tags, media }) {
   try {
     const response = await fetch(`${API_SOCIAL_POSTS}/${id}`, {
       method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: headers(),
       body: JSON.stringify({
         title,
         body,

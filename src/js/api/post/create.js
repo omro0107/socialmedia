@@ -4,9 +4,7 @@ export async function createPost({ title, body, tags, media }) {
   try {
     const response = await fetch(`${API_SOCIAL_POSTS}`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: headers(),
       body: JSON.stringify({
         title,
         body,

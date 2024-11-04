@@ -1,8 +1,11 @@
 import {API_SOCIAL_POSTS} from '../constants';
+import { headers } from '../headers';
 
 export async function readPost(id) {
   try {
-    const response = await fetch(`${API_SOCIAL_POSTS}/${id}`);
+    const response = await fetch(`${API_SOCIAL_POSTS}/${id}`, {
+      headers: headers(),
+    });
 
   if (response.ok) {
       const data = await response.json();

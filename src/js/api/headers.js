@@ -14,5 +14,9 @@ export function headers() {
     headers.append("Authorization", `Bearer ${accessToken}`);
   }
 
+  headers.append("Content-Type", "application/json");
+
+  console.log('Headers being sent:', Object.fromEntries(headers.entries()));
+
   return headers;
 }
