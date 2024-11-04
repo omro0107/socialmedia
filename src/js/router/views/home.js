@@ -8,7 +8,7 @@ async function main() {
   try {
     document.getElementById('loader').style.display = 'block';
 
-    const url = `${API_SOCIAL_POSTS}?limit=12&offset=0`;
+    const url = `${API_SOCIAL_POSTS}`;
     console.log('Fetching from URL:', url);
 
     const responseData = await doFetch(url);
