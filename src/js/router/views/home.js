@@ -53,17 +53,22 @@ async function main() {
   try {
     document.getElementById('loader').style.display = 'block';
 
-    const responseData = await doFetch(API_SOCIAL_POSTS);
-    if (!responseData || !responseData.data) {
+    const url = `${API_SOCIAL_POSTS}?limit=12&offset=0`;
+    console.log('Fetching from URL:', url);
+
+    const responseData = await doFetch(url);
+    console.log('Response data:', responseData);
+
+    if (!responseData) {
       throw new Error('Failed to fetch post data from the API');
     }
 
-    posts.push(...responseData.data);
     displayPostThumbnails(responseData.data);
     
     document.getElementById('loader').style.display = 'none';
   } catch (error) {
-    console.error('An error occurred:', error.message);
+    console.error('Full error details:', error.message);
+    document.getElementById('loader').style.display = 'none';
     alert('Oops! Something went wrong while fetching posts. Please try again later.');
   }
 }

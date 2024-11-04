@@ -1,14 +1,19 @@
-export async function doFetch(url, options = {}) {
+// src/js/utilities/doFetch.js
+import { headers } from "../api/headers";
+
+export async function doFetch(url) {
   try {
-    const headers = {
-      'Content-Type': 'application/json',
-    };
-    const combinedOptions = { headers, ...options };
-    const response = await fetch(url, combinedOptions);
-    const json = await response.json();
-    return json;
+    const response = await fetch(url, {
+      headers: headers(),
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    return await response.json();
   } catch (error) {
+    console.error("Fetch error:", error);
     throw error;
-  } finally {
   }
 }
