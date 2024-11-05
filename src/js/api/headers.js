@@ -1,5 +1,4 @@
 import { API_KEY } from "./constants";
-import { getToken } from "../utilities/token";
 
 export function headers() {
   const headers = new Headers();
@@ -8,7 +7,8 @@ export function headers() {
     headers.append("X-Noroff-API-Key", API_KEY);
   }
 
-  const accessToken = getToken();
+  const accessToken = localStorage.getItem('accessToken');
+  console.log('Retrieved access token', accessToken);
 
   if (accessToken) {
     headers.append("Authorization", `Bearer ${accessToken}`);
