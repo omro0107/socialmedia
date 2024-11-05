@@ -33,10 +33,10 @@ async function main() {
       thumbnailImage.src = post.media.url;
       thumbnailImage.alt = post.media.alt || 'Post image';
       } else {
-      thumbnailImage.src = 'path/to/placeholder-image.jpg';
+      thumbnailImage.src = 'img srcpublic\images\_148da948-19bc-4fde-bc83-168884cc7945.jpg'
       thumbnailImage.alt = 'No image available'
       }
-      
+
       thumbnailImage.classList.add('postimg');
 
       const postDate = document.createElement('div');
