@@ -1,9 +1,11 @@
+console.log('JavaScript file loaded');
 alert("Single Post Page");
 import { readPost } from '../../api/post/read';
 
 async function getPost() {
   const params = new URLSearchParams(window.location.search);
   const postId = params.get('id');
+  console.log('Post ID', postId);
 
   if (!postId) {
     alert('Post ID is missing in the URL.');
@@ -12,8 +14,7 @@ async function getPost() {
 
   try {
     const post = await readPost(postId);
-    console.log(post);
-
+    console.log('Fetched Post:', post);
     displayPost(post);
   } catch (error) {
     console.error('Error fetching the post:', error);
@@ -22,9 +23,15 @@ async function getPost() {
 }
 
 function displayPost(post) {
+  console.log('Display post called with:', post)
   const postContainer = document.getElementById('post-container');
 
- 
+  if (!post || !post.data) {
+    console.error('Post data is missing or invalid');
+    postContainer.innerHTML = '<p>Error: Post data is missing or invalid.</p>';
+    return;
+  }
+
   postContainer.innerHTML = '';
 
   const postTitle = document.createElement('h1');
@@ -66,5 +73,6 @@ function displayPost(post) {
 
 
 document.addEventListener('DOMContentLoaded', () => {
+  console.log('DOM fully loaded and parsed')
   getPost();
 });

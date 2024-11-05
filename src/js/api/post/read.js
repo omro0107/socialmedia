@@ -5,6 +5,8 @@ export async function readPost(postId) {
   const url = `${API_SOCIAL_POSTS}/${postId}`;
   const response = await doFetch(url);
   
+  console.log('API response', response)
+  
   if (!response || !response.data) {
     throw new Error('Post not found');
   }

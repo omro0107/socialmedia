@@ -66,7 +66,7 @@ async function main() {
       postThumbnail.appendChild(postTitle);
 
       postThumbnail.addEventListener('click', () => {
-        window.location.href = `post/index.html?id=${post.id}`; 
+        window.location.href = `/post/?id=${post.id}`; 
       });
 
       postThumbnailsContainer.appendChild(postThumbnail);
