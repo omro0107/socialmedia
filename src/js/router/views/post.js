@@ -65,4 +65,6 @@ function displayPost(post) {
 }
 
 
-document.addEventListener('DOMContentLoaded', getPost);
+document.addEventListener('DOMContentLoaded', () => {
+  getPost();
+});
