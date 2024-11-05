@@ -8,14 +8,19 @@ export async function onLogin(event) {
 
   try {
     const data = await login({ email,  password });
+    const accessToken = data.data?.accessToken;
     console.log('Login response:', data);
-    if (data.accessToken) {
-    localStorage.setItem('accessToken', data.accessToken);
+    if (accessToken) {
+    localStorage.setItem('accessToken', accessToken);
     console.log('Token stored:', localStorage.getItem('accessToken'));
-    window.location.href = '/';
-    } else {
+
+    setTimeout(() => {
+      window.location.href = '/';
+    }, 500);
+        } else {
       console.error('No access token recieved from server')
     }
+    
     
   } catch (error) {
     console.log('Login error', error)

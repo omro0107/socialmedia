@@ -25,12 +25,19 @@ async function main() {
 
     latestPosts.forEach(post => {
       const postThumbnail = document.createElement('div');
-      postThumbnail.classList.add('blogpost');
+      postThumbnail.classList.add('post');
 
       const thumbnailImage = document.createElement('img');
+
+      if (post.media?.url) {
       thumbnailImage.src = post.media.url;
-      thumbnailImage.alt = post.media.alt;
-      thumbnailImage.classList.add('blogpostimg');
+      thumbnailImage.alt = post.media.alt || 'Post image';
+      } else {
+      thumbnailImage.src = 'path/to/placeholder-image.jpg';
+      thumbnailImage.alt = 'No image available'
+      }
+      
+      thumbnailImage.classList.add('postimg');
 
       const postDate = document.createElement('div');
       postDate.classList.add('post-date');
