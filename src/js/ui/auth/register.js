@@ -10,7 +10,10 @@ export async function onRegister(event) {
   try {
     const data = await register({ name, email, password });
     console.log(data);
+    alert("Registration successful! You can now log in.");
+    window.location.href = "/auth/login/";
   } catch (error) {
     console.error(error);
+    alert("Registration failed. Please try again.");
   }
 }

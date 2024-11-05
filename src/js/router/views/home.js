@@ -1,8 +1,13 @@
 import { authGuard } from "../../utilities/authGuard";
 import { doFetch } from "../../utilities/doFetch";
 import { API_SOCIAL_POSTS } from "../../api/constants.js";
+import { logout } from "../../ui/auth/logout.js";
 
 authGuard();
+
+document.getElementById('logout-button').addEventListener('click', async () => {
+  await logout();
+});
 
 async function main() {
   try {

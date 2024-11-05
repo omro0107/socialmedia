@@ -1,43 +1,13 @@
-import {API_SOCIAL_POSTS} from '../constants';
-import { headers } from '../headers';
+import { doFetch } from '../../utilities/doFetch';
+import { API_SOCIAL_POSTS } from '../../api/constants.js';
 
-export async function readPost(id) {
-  try {
-    const response = await fetch(`${API_SOCIAL_POSTS}/${id}`, {
-      headers: headers(),
-    });
-
-  if (response.ok) {
-      const data = await response.json();
-      return data;
-    } else {
-      throw new Error("Failed to get post");
-    }
-  } catch (error) {
-    console.error(error);
-    throw error;
+export async function readPost(postId) {
+  const url = `${API_SOCIAL_POSTS}/${postId}`;
+  const response = await doFetch(url);
+  
+  if (!response || !response.data) {
+    throw new Error('Post not found');
   }
-}
-
-export async function readPosts(limit = 12, page = 1, tag) {
-  try {
-    const params = new URLSearchParams();
-    params.set('limit', limit);
-    params.set('page', page);
-    if (tag) {
-      params.set('tag', tag);
-    }
-
-    const response = await fetch(`${API_SOCIAL_POSTS}?${params.toString()}`);
-
-    if (response.ok) {
-      const data = await response.json();
-      return data;
-    } else {
-      throw new Error("Failed to get posts");
-    }
-  } catch (error) {
-    console.error(error);
-    throw error;
-  }
+  
+  return response;
 }
