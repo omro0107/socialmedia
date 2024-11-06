@@ -4,7 +4,7 @@ import { displayMyPosts } from "../../utilities/displayMyPosts";
 import { blogPostsBuilder } from "../../utilities/displayPosts";
 
 
-export async function readPost() {
+export async function readSinglePost() {
   const pageId = new URLSearchParams(window.location.search).get("id");
   try {
     const fetchInfo = await fetch(`${API_SOCIAL_POSTS}/${pageId}?_author=true&_comments=true`, {
@@ -40,7 +40,7 @@ export async function readPosts(limit = 12, page = 1, tag) {
   }
 }
 
-export async function displayMyPosts(limit = 6, page = 1, tag) {
+export async function readMyPosts(limit = 6, page = 1, tag) {
   try {
     const response = await fetch(API_SOCIAL_MY_USER_POSTS, {
       method: "GET",

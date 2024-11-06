@@ -6,6 +6,8 @@ export const accessToken = localStorage.getItem("accessToken");
 
 export const API_BASE_URL = "https://v2.api.noroff.dev";
 
+export const fetchId = new URLSearchParams(window.location.search).get("id");
+
 export const API_AUTH = `${API_BASE_URL}/auth`;
 
 export const API_AUTH_LOGIN = `${API_AUTH}/login`;

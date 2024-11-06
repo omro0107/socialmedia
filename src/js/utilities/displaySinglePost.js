@@ -2,7 +2,7 @@ import { fetchId } from "../api/constants";
 import { deletePost } from "../api/post/delete";
 import { formatDate } from "./dateAndTime";
 
-export async function buildSinglePost(post) {
+export async function displaySinglePost(post) {
   const createdAt = post.created;
   const updatedAt = post.updated;
 

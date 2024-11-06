@@ -1,4 +1,4 @@
-export async function logout() {
+export async function onLogout() {
   try {
     localStorage.clear();
 

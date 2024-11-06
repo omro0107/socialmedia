@@ -1,4 +1,4 @@
-export function buildUser() {
+export function displayUser() {
   const domBody = document.getElementById("profileBody");
   const createUserBanner = document.createElement("img");
   const createAvatarImg = document.createElement("img");
