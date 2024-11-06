@@ -12,13 +12,25 @@ export async function login({ email, password }) {
       }),
     });
 
-    if (response.ok) {
-      const data = await response.json();
-      console.log('Login response:', data)
-      return data;
-    } else {
-      throw new Error("Invalid email or password");
+    const data = await response.json();
+
+    if (!response.ok) {
+      document.getElementById("userError").innerHTML = `${data.errors[0].message}`;
     }
+    
+    if (response.ok) {
+      userError.style.display = "none";
+      document.getElementById(
+        "userSuccess"
+      ).innerHTML = `Successfully logged in. Redirected to Home page`;
+      setTimeout(() => {
+        window.location.href = "/";
+      }, 3000);
+    }
+
+    localStorage.setItem("accessToken", `${data.data.accessToken}`);
+    localStorage.setItem("userName", `${data.data.name}`);
+    localStorage.setItem("myUserData", `${JSON.stringify(data)}`);
   } catch (error) {
     console.error('Error logging in.', error);
     throw error;

@@ -10,14 +10,15 @@
   <body id="profileBody">
     <h1>Profile</h1>
 
-    <form name="updateProfile">
-      <label for="banner"> Banner </label>
+    <form name="updateProfile" id="updateProfile">
+      <h2>Update Profile</h2>
+      <label for="banner" id="banner"> Banner </label>
       <input type="url" name="banner" required maxlength="300">
-      <label for="pfp"> Profile Picture </label>
+      <label for="pfp" id="pfp"> Profile Picture </label>
       <input type="text" name="pfp" required type="url" maxlength="300">
-      <label for="bio"> Bio </label>
+      <label for="bio" id="bio"> Bio </label>
       <input type="text" name="bio">
-      <button id="updateProfileButton">Update Profile</button>
+      <button id="updateProfileButton" type="submit">Update Profile</button>
       <p id="errorMessage" style="color: red;"></p>
       <p id="successMessage" style="color: green;"></p>
     </form>
