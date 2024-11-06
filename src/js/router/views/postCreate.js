@@ -1,8 +1,8 @@
-import { onCreatePost } from "../../ui/post/create";
 import { authGuard } from "../../utilities/authGuard";
+import { onCreatePost } from "../../ui/post/create";
 
 authGuard();
 
-const form = document.querySelector('form[name="create-post-form"]');
+const form = document.forms.createPost;
 
 form.addEventListener("submit", onCreatePost);

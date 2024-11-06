@@ -10,10 +10,11 @@
 
   <body>
     <h1>Login</h1>
-    <form id="login-form" name="login-form">
+    <form name="login">
       <div>
         <label for="email">Email</label>
-        <input id="email" type="email" name="email" required />
+        <input id="email" type="email" name="email" required pattern="^[\w\-.]+@(stud\.)?noroff\.no$"
+        title="Please enter a valid noroff.no or stud.noroff.no address" />
       </div>
 
       <div>
@@ -23,6 +24,8 @@
 
       <a href="/auth/register/">Register</a>
       <button type="submit">Login</button>
+      <p id="userSuccess" style="color: green;"> </p>
+      <p id="userError" style="color: red;"> </p>
     </form>
   </body>
 </html>

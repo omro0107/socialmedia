@@ -3,13 +3,17 @@ import { updatePost } from '../api/post/update';
 export async function onUpdatePost(event) {
   event.preventDefault();
 
-  const title = document.getElementById('title').value;
-  const body = document.getElementById('body').value;
+  const formData = Object.fromEntries(new FormData(event.target));
 
-  try {
-    const data = await updatePost({ title, body });
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
+  const updatedPost = {
+    title: formData.title,
+    body: formData.body,
+    media: {
+      url: formData.url,
+      alt: formData.altTag,
+    },
+    tags: formData.tags ? formData.tags.split(", ").map((tag) => tag.trim()) : [],
+  };
+
+  updatePost(updatedPost);
 }

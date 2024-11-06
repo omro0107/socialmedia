@@ -1,15 +1,24 @@
+import { createPost } from "../../api/post/create";
+
 export async function onCreatePost(event) {
   event.preventDefault();
 
-  const title = document.getElementById("title").value;
-  const body = document.getElementById("body").value;
-  const tags = document.getElementById("tags").value;
-  const media = document.getElementById("media").value;
+  const formData = new FormData(event.target);
 
-  try {
-    const data = await createPost({ title, body, tags, media });
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
+  const createNewPost = {
+    title: formData.get("title"),
+    body: formData.get("body"),
+    media: {
+      url: formData.get("url"),
+      alt: formData.get("altTag"),
+    },
+    tags: formData.get("tags")
+      ? formData
+          .get("tags")
+          .split(", ")
+          .map((tags) => tags.trim())
+      : [],
+  };
+
+  createPost(createNewPost);
 }

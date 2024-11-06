@@ -1,5 +1,5 @@
 import { onLogin } from "../../ui/auth/login";
 
-const form = document.querySelector('form[name="login-form"]');
+const form = document.forms.login;
 
 form.addEventListener("submit", onLogin);

@@ -1,5 +1,7 @@
-import { logout } from '../api/auth/logout';
+import { onLogout } from "../../ui/auth/logout";
 
-document.getElementById("logout-button").addEventListener("click", async () => {
-  await logout();
-});
+export function setLogoutListener() {
+  const button = document.getElementById("logout-button");
+
+  button.addEventListener("click", onLogout);
+}

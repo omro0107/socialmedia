@@ -7,11 +7,19 @@
     <title>Noroff FED2 JS2 CA</title>
     <script type="module" src="/src/app.js"></script>
   </head>
-  <body>
+  <body id="profileBody">
     <h1>Profile</h1>
 
     <form name="updateProfile">
-      <button>Update Profile</button>
+      <label for="banner"> Banner </label>
+      <input type="url" name="banner" required maxlength="300">
+      <label for="pfp"> Profile Picture </label>
+      <input type="text" name="pfp" required type="url" maxlength="300">
+      <label for="bio"> Bio </label>
+      <input type="text" name="bio">
+      <button id="updateProfileButton">Update Profile</button>
+      <p id="errorMessage" style="color: red;"></p>
+      <p id="successMessage" style="color: green;"></p>
     </form>
   </body>
 </html>
