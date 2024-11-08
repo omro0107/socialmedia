@@ -7,50 +7,30 @@
     <title>Noroff FED2 JS2 CA</title>
     <script type="module" src="/src/app.js"></script>
   </head>
-
-  <body>
-    <h1>Register</h1>
-
-    <form name="register-form">
-      <div>
-        <label for="name">Name</label>
-        <input
-          id="name"
-          type="text"
-          name="name"
-          required
-          maxlength="20"
-          pattern="^[\w]+$"
-          title="Please enter a username using only letters and numbers"
-        />
-      </div>
-
-      <div>
-        <label for="email">Email</label>
-        <input
-          id="email"
-          type="email"
-          name="email"
-          required
-          pattern="^[\w\-.]+@(stud\.)?noroff\.no$"
-          title="Please enter a valid noroff.no or stud.noroff.no address"
-        />
-      </div>
-
-      <div>
-        <label for="password">Password</label>
-        <input
-          type="password"
-          name="password"
-          id="password"
-          required
-          minlength="8"
-        />
-      </div>
-      <p id="userSuccess" style="color: green;"> </p>
-      <p id="userError" style="color: red;"> </p>
-      <a href="/auth/login/">Login</a>
-      <button type="submit">Register</button>
-    </form>
+  <body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+    <div class="bg-white rounded-lg shadow-md p-8 max-w-md w-full">
+      <h1 class="text-2xl font-bold mb-6 text-center">Register</h1>
+      <form id="register-form">
+        <div class="mb-4">
+          <label for="name" class="block text-sm font-medium text-cyan-950">Name</label>
+          <input id="name" type="text" name="name" required maxlength="20" pattern="^[\w]+$" title="Please enter a username using only letters and numbers" class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-cyan-200"/>
+        </div>
+        <div class="mb-4">
+          <label for="email" class="block text-sm font-medium text-cyan-950">Email</label>
+          <input id="email" type="email" name="email" required pattern="^[\w\-.]+@(stud\.)?noroff\.no$" title="Please enter a valid noroff.no or stud.noroff.no address" class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-cyan-200"/>
+        </div>
+        <div class="mb-4">
+          <label for="password" class="block text-sm font-medium text-cyan-950">Password</label>
+          <input type="password" name="password" id="password" required minlength="8" title="Passwsord must be at least 8 characters long" class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-cyan-200"/>
+        </div>
+        <p id="userSuccess" class="text-green-500 mb-2"> </p>
+        <p id="userError" class="text-red-500 mb-2"> </p>
+        <button type="submit" class="w-full bg-cyan-600 text-white font-semibold py-2 rounded-md hover:bg-cyan-700 transition duration-200">Register</button>
+        <div class="mt-4 text-center">
+          <p class="text-sm">Already have an account?</p>
+          <a href="/auth/login/" class="text-cyan-500 hover:underline">Login</a>
+        </div>
+      </form>
+    </div>
   </body>
 </html>

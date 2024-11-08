@@ -1,32 +1,41 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Noroff FED2 JS2 CA</title>
     <script type="module" src="/src/app.js"></script>
   </head>
-  <body>
-    <h1>Create Post</h1>
-    <form name="createPost" id="createPostForm">
-      <label for="url">Image URL</label>
-      <input type="url" name="url" required>
-      <label for="title" placeholder="Enter post title" maxlength="60">Post Title </label>
-      <input type="text" name="title" id="" required>
-      <label for="body">Post Content</label>
-      <textarea type="text" name="body" id="bodyContent" maxlength="10000" rows="12"></textarea>
-  
-      <label for="tags">Tags</label>
-      <input type="text" name="tags" id="">
-      <label for="altTag">Image Description</label>
-      <input type="text" name="altTag" id="">
-  
-      <button id="createPostButton">Create Post</button>
-    </form>
-  
-    <p id="userSuccess" style="color: green;"> </p>
-    <p id="userError" style="color: red;"> </p>
-  
-    <a href="/">Home</a>
+  <body class="bg-stone-300 flex items-center justify-center min-h-screen flex-col">
+    <a  href="/"><img src="/images/DALLE2~1.jpg" alt="Logo" class="max-w-20 py-4"/></a>
+    <div class="bg-white p-6 rounded-lg shadow-md w-full max-w-lg">
+      <h1 class="text-2xl font-bold mb-4 text-center text-cyan-950">Create Post</h1>
+      <form name="createPost" id="createPostForm">
+        <div class="mb-4">
+          <label for="url" class="block text-sm font-medium text-cyan-950">Image URL</label>
+          <input type="url" name="url" id="url" placeholder="Enter image url" required class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-cyan-200">
+        </div>
+        <div class="mb-4">
+          <label for="title" class="block text-sm font-medium text-cyan-950">Post Title </label>
+          <input type="text" name="title" id="title" placeholder="Enter post title" maxlength="60" required class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-cyan-200">
+         </div>
+         <div class="mb-4">
+          <label for="body" class="block text-sm font-medium text-cyan-950">Post Content</label>
+          <textarea name="body" id="bodyContent" maxlength="10000" rows="12" required placeholder="Enter post content" class="mt-1 w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-cyan-200"></textarea>
+        </div>
+        <div class="mb-4">
+          <label for="tags" class="block text-sm font-medium text-cyan-950">Tags</label>
+          <input type="text" name="tags" id="tags" class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-cyan-200">
+        </div>
+        <div class="mb-4">
+          <label for="altTag" class="block text-sm font-medium text-cyan-950">Image Description</label>
+          <input type="text" name="altTag" id="altTag" class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-cyan-200">
+        </div>
+        <button type="submit" id="createPostButton" class="w-full bg-cyan-600 text-white font-semibold py-2 rounded-md hover:bg-cyan-700 focus:outline-none focus:ring focus:ring-blue-300">Create Post</button>
+      </form>
+    
+      <p id="userSuccess" style="color: green;"> </p>
+      <p id="userError" style="color: red;"> </p>
+    </div>
   </body>
 </html>

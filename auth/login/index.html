@@ -1,31 +1,32 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-
+    <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Noroff FED2 JS2 CA</title>
     <script type="module" src="/src/app.js"></script>
   </head>
-
-  <body>
-    <h1>Login</h1>
-    <form name="login">
-      <div>
-        <label for="email">Email</label>
-        <input id="email" type="email" name="email" required pattern="^[\w\-.]+@(stud\.)?noroff\.no$"
-        title="Please enter a valid noroff.no or stud.noroff.no address" />
-      </div>
-
-      <div>
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" required />
-      </div>
-
-      <a href="/auth/register/">Register</a>
-      <button type="submit">Login</button>
-      <p id="userSuccess" style="color: green;"> </p>
-      <p id="userError" style="color: red;"> </p>
-    </form>
+  <body class="bg-stone-100 flex items-center justify-center min-h-screen p-4">
+    <div class="bg-white rounded-lg shadow-md p-6 w-full max-w-md">
+      <h1 class="text-2xl font-bold mb-6 text-center text-cyan-950">Login</h1>
+      <form id="loginForm">
+        <div class="mb-4">
+          <label for="email" class="block text-sm font-medium text-cyan-0">Email</label>
+          <input id="email" type="email" name="email" required pattern="^[\w\-.]+@(stud\.)?noroff\.no$"
+          title="Please enter a valid noroff.no or stud.noroff.no address"  class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-cyan-200"/>
+        </div>
+        <div class="mb-4">
+          <label for="password" class="block text-sm font-medium text-cyan-0">Password</label>
+          <input type="password" name="password" id="password" required class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-cyan-200"/>
+        </div>
+        <button type="submit" class="mt-4 w-full bg-cyan-600 text-white font-semibold py-2 rounded-md hover:bg-cyan-700 transition duration-200">Login</button>
+        <div id="createaccount" class="mt-6 p-4 bg-gray-100 rounded-lg shadow-md text-center">
+          <p class="text-gray-700">Not registered?</p>
+          <a href="/auth/register/" aria-label="Register" class="mt-2 inline-block text-cyan-600 font-semibold hover:text-cyan-800 transition duration-200">Create an account</a>
+        </div>
+        <p id="userSuccess" class="text-green-500"> </p>
+        <p id="userError" class="text-red-500"> </p>
+      </form>
+    </div>
   </body>
 </html>
