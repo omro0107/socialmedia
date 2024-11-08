@@ -10,7 +10,7 @@ export function blogPostsBuilder(blogPost) {
 
     postContainer.className = "post-container flex-c";
     blogPostImage.className = "blogpost-image";
-    postContainerBottom.className = "postcontainer-bottom flex-c center-horizontal";
+    postContainerBottom.className = "postcontainer-bottom";
     postContainerBottomHeader.className = "postContainerHeader";
 
     blogPostImage.setAttribute("src", element.media?.url || "");

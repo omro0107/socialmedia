@@ -8,34 +8,37 @@
   <script type="module" src="/src/app.js"></script>
 </head>
 
-<body>
-  <header>
-    <img src="/images/noroff-logo.png" alt="Noroff Logo" />
-    <a href="/profile/">My Profile</a>
-    <a href="/auth/login/" id="loginButton">Login</a>
-    <a href="/auth/register/" id="registerButton">Register</a>
-    <a href="/post/create/"> Create Post </a>
-    <button id="logout-button">Logout</button>
+<body class="bg-stone-300">
+  <header class="bg-stone-400">
+    <img src="/images/DALLE2~1.jpg" alt="Logo" class="md:w-40"/>
+    <nav class="container mx-auto flex justify-center">
+      <a href="/profile/" class="py-4 px-2 text-cyan-950 hover:text-cyan-200">My Profile</a>
+      <a href="/auth/login/" id="loginButton">Login</a>
+      <a href="/auth/register/" id="registerButton">Register</a>
+      <a href="/post/create/" class="py-4 px-2 text-cyan-950 hover:text-cyan-200"> Create Post </a>
+      <button id="logout-button" class="bg-cyan-600 rounded text-white font-bold py-2 px-4 hover:bg-cyan-200">Logout</button>
+    </nav>
     <div id="loader" class="loader">
       <i class="fa fa-spinner fa-spin"></i>
-    </div> 
+    </div>
   </header>
 
-  <main>
-    <h1>Home</h1>
+  <main class="container mx-auto my-7">
+    <h1 class="text-xl font-bold">Home</h1>
     <ul class="myBlogPosts-list">
     </ul>
     <h2>Latest posts</h2>
-    <li class="blogposts-list"></li>
+    <li class="blogposts-list flex justify-center flex-wrap"></li>
   </main>
 
-  <footer>
-    <ul>
-      <button> First Page </button>
-      <button> Previous Page </button>
-      <button> Next Page </button>
-      <button> Last Page </button>
+  <footer class="bg-stone-400">
+    <ul class="container mx-auto flex justify-center">
+      <button class="py-4 px-2 text-cyan-950 hover:text-cyan-200"> First Page </button>
+      <button class="py-4 px-2 text-cyan-950 hover:text-cyan-200"> Previous Page </button>
+      <button class="py-4 px-2 text-cyan-950 hover:text-cyan-200"> Next Page </button>
+      <button class="py-4 px-2 text-cyan-950 hover:text-cyan-200"> Last Page </button>
     </ul>
+    <p container mx-auto>Copyright &copy; 2024</p>
   </footer>
 </body>
 </html>
