@@ -25,18 +25,30 @@ export async function readSinglePost() {
 
 export async function readPosts(limit = 12, page = 1, tag) {
   try {
-    const response = await fetch(API_SOCIAL_POSTS, {
+    let url = `${API_SOCIAL_POSTS}?limit=${limit}&page=${page}`;
+    if (tag) {
+      url += `&tag=${tag}`;
+    }
+
+    const response = await fetch(url, {
       method: "GET",
       headers: headers(),
     });
 
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
     const resultJson = await response.json();
-    const postObjects = resultJson.data;
-    const postObjectsToRender = postObjects.slice(0, limit);
+    const postObjects = resultJson.data || []; 
+    const postObjectsToRender = postObjects.slice(0, limit); 
 
     blogPostsBuilder(postObjectsToRender);
   } catch (error) {
-    console.error(error);
+    console.error('Error fetching posts:', error);
+    const errorMessage = document.createElement('p');
+    errorMessage.textContent = 'Failed to load posts. Please try again later.';
+    document.querySelector('.post-list').appendChild(errorMessage);
   }
 }
 

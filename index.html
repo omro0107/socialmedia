@@ -13,8 +13,8 @@
     <img src="/images/DALLE2~1.jpg" alt="Logo" class="md:w-40"/>
     <nav class="container mx-auto flex justify-center">
       <a href="/profile/" class="py-4 px-2 text-cyan-950 hover:text-cyan-200">My Profile</a>
-      <a href="/auth/login/" id="loginButton">Login</a>
-      <a href="/auth/register/" id="registerButton">Register</a>
+      <a href="/auth/login/" id="loginButton" class="py-4 px-2 text-cyan-950 hover:text-cyan-200">Login</a>
+      <a href="/auth/register/" id="registerButton" class="py-4 px-2 text-cyan-950 hover:text-cyan-200">Register</a>
       <a href="/post/create/" class="py-4 px-2 text-cyan-950 hover:text-cyan-200"> Create Post </a>
       <button id="logout-button" class="bg-cyan-600 rounded text-white font-bold py-2 px-4 hover:bg-cyan-200">Logout</button>
     </nav>
@@ -28,6 +28,7 @@
     <ul class="myBlogPosts-list">
     </ul>
     <h2>Latest posts</h2>
+    <div class="post-list grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
     <li class="blogposts-list flex justify-center flex-wrap"></li>
   </main>
 
