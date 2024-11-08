@@ -1,4 +1,4 @@
-import { deletePost } from '../api/post/delete';
+import { deletePost } from '../../api/post/delete';
 
 export async function onDeletePost(event, postData, postArticle) {
   event.preventDefault();
