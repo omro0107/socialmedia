@@ -6,25 +6,28 @@
     <title>Noroff FED2 JS2 CA</title>
     <script type="module" src="/src/app.js"></script>
   </head>
-  <body>
-    <h1>Post Page</h1>
-    <main>
-      <div class="blogpage-image-container flex-r center-vertical">
-        <img class="blogpage-image" src="#" alt="big blogpost">
+  <body class="bg-stone-100">
+    <header class="bg-stone-400">
+      <a href="/">Home</a>
+    </header>
+    <main class="container mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold mb-4 text-cyan-950">Post Page</h1>
+      <div class="mb-6">
+        <img id="image" src="#" alt="Post Image" class="w-full rounded-lg shadow-md">
       </div>
-      <div class="headTextWrapper flex-r center-vertical">
-        <h1 id="postHeaderTitle"> Placeholder title </h1>
+      <div class="mb-4">
+        <h1 id="postHeader" class="text-2xl font-semibold text-cyan-950"> Placeholder title </h1>
       </div>
-      <div class="blogpage-textcontainer flex-c">
-        <p id="postAuthor"> Post Author </p>
-        <p id="blogpost-text">
+      <div class="mb-4">
+        <p id="postAuthor" class="text-cyan-950"> Post Author </p>
+        <p id="post-content" class="text-cyan-950 leading-relaxed">
         </p>
-        <div class="flex-r center-horizontal underblogpost">
-          <p id="publicationDate"> Publication Date </p>
-          <p id="updatedTime"> Updated Time </p>
+        <div class="mb-4">
+          <p id="published" class="text-cyan-950"> Publication Date </p>
+          <p id="updated" class="text-cyan-950"> Updated Time </p>
         </div>
       </div>
-    </main>
-    <a href="/">Home</a>
+  </main>
+    
   </body>
 </html>

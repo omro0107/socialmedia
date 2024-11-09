@@ -1,11 +1,15 @@
 import { authGuard } from "../../utilities/authGuard";
-import { prefillEditForms } from "../../utilities/prefilledEditForm";
+import { prefilledEditForm } from "../../utilities/prefilledEditForm";
 import { onUpdatePost } from "../../ui/post/update";
 
-prefillEditForms();
+prefilledEditForm();
 
 const form = document.forms.editpostform;
 
-form.addEventListener("submit", onUpdatePost);
+document.querySelector('form[name="editpostform"]').addEventListener('submit', (event) => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const postId = Number(urlParams.get('id'));
+  onUpdatePost(event, postId);
+});
 
 authGuard();

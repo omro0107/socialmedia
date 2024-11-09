@@ -2,33 +2,44 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Noroff FED2 JS2 CA</title>
     <script type="module" src="/src/app.js"></script>
   </head>
-  <body>
-    <h1>Edit Post</h1>
-    <form name="editpostform">
-      <label for="url">Image URL</label>
-      <input type="url" name="url" id="urlForm" required>
-  
-      <label for="title" placeholder="Enter post title" maxlength="60">Post Title </label>
-      <input type="text" name="title" id="titleForm" required>
-  
-      <label for="body">Post Content</label>
-      <textarea type="text" name="body" id="bodyContent" maxlength="10000" rows="12" itemid="postContentForm"></textarea>
-  
-      <label for="tags">Tags</label>
-      <input type="text" name="tags" id="tagsForm">
-  
-      <label for="altTag">Image Description</label>
-      <input type="text" name="altTag" id="altTagForm">
-  
-      <button id="editPostButton">Edit Post</button>
-    </form>
-  
-    <p id="errorMessage" style="color: red;"></p>
-    <p id="userSuccess" style="color: green;"></p>
+  <body class="bg-stone-200">
+    <header class="bg-stone-400 text-white p-4">
+
+    </header>
+    <main class="max-w-2xl mx-auto p-6 bg-white shadow-md rounded mt-6">
+      <h1 class="text-2xl font-bold">Edit Post</h1>
+      <form name="editpostform">
+        <div class="mb-4">
+        <label for="Imageurl" class="block text-sm font-medium text-cyan-950">Image URL</label>
+        <input type="url" name="url" id="Imageurl" placeholder="Enter image URL" pattern="https?://.+" title="Please enter a valid URL starting with http:// or https://" required class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-cyan-200">
+        </div>
+        <div class="mb-4">
+        <label for="title" class="block text-sm font-medium text-cyan-950">Post Title </label>
+        <input type="text" name="title" id="title" maxlength="60" placeholder="Enter post title" required class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-cyan-200">
+        </div>
+        <div class="mb-4">
+        <label for="bodyContent" class="block text-sm font-medium text-cyan-950">Post Content</label>
+        <textarea name="body" id="bodyContent" maxlength="10000" rows="12" itemid="postContentForm" placeholder="Enter post content" required class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-cyan-200"></textarea>
+        </div>
+        <div class="mb-4">
+        <label for="tagsForm" class="block text-sm font-medium text-cyan-950">Tags</label>
+        <input type="text" name="tags" id="tagsForm" placeholder="Enter tags (comma separated)" class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-cyan-200">
+        </div>
+        <div class="mb-4">
+        <label for="altTagForm" class="block text-sm font-medium text-cyan-950">Image Description</label>
+        <input type="text" name="altTag" id="altTagForm" placeholder="Enter image description" class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-cyan-200">
+        </div>
+        <button id="editPostButton" class="w-full bg-cyan-600 text-white p-2 rounded-md hover:bg-cyan-700 transition duration-200">Edit Post</button>
+      </form>
+      <p id="errorMessage" class="text-red-500 mt-4"></p>
+      <p id="userSuccess" class="text-green-500 mt-4"></p>
+    </main>
+    <footer class="bg-stone-400 text-white text-center p-4 mt-6">
+      <p>Copyright &copy; 2024</p>
+    </footer>
   </body>
 </html>

@@ -14,7 +14,7 @@ export async function updatePost(id, { title, body, tags, media }) {
       }),
     });
 
-    const result = await response.json
+    const result = await response.json();
     
     if (!response.ok) {
       document.getElementById("errorMessage").innerHTML = result.errors[0].message;
@@ -27,8 +27,8 @@ export async function updatePost(id, { title, body, tags, media }) {
         "userSuccess"
       ).innerText = `Post was updated successfully, we'll now redirect you to the post page`;
       setTimeout(() => {
-        window.location.href = `/post/?id=${fetchId}`;
-      }, 6000);
+        window.location.href = `/post/?id=${id}`;
+      }, 4000);
     }
   } catch (error) {
     console.error(error);

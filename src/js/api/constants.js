@@ -21,3 +21,5 @@ export const API_SOCIAL = `${API_BASE_URL}/social`;
 export const API_SOCIAL_POSTS = `${API_SOCIAL}/posts`;
 
 export const API_SOCIAL_PROFILES = `${API_SOCIAL}/profiles`;
+
+export const API_SOCIAL_SELECTED_POST = `${API_SOCIAL}/posts/${fetchId}`;

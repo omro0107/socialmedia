@@ -9,20 +9,20 @@ export async function displaySinglePost(post) {
   const createdAtFormatted = formatDate(createdAt);
   const updatedAtFormatted = formatDate(updatedAt);
 
-  const blogPostImage = document.querySelector(".blogpage-image");
-  const header = document.getElementById("postHeaderTitle");
+  const blogPostImage = document.getElementById("image");
+  const header = document.getElementById("postHeader");
   const postAuthor = document.getElementById("postAuthor");
-  const postText = document.getElementById("blogpost-text");
-  const dateCreated = document.getElementById("publicationDate");
-  const updatedTime = document.getElementById("updatedTime");
+  const postText = document.getElementById("post-content");
+  const dateCreated = document.getElementById("published");
+  const updatedTime = document.getElementById("updated");
 
   blogPostImage.src = post.media?.url || "";
   blogPostImage.setAttribute("alt", post.media?.alt || "Missing alt text");
   postAuthor.innerText = `Published by: ${post.author.name}`;
   header.innerText = post.title;
   postText.innerText = post.body;
-  dateCreated.innerText = `Post Created: ${createdAtFormatted}`;
-  updatedTime.innerText = `Post Updated: ${updatedAtFormatted}`;
+  dateCreated.innerText = `Posted: ${createdAtFormatted}`;
+  updatedTime.innerText = `Updated: ${updatedAtFormatted}`;
 
   if (createdAt === updatedAt) {
     updatedTime.style.display = "none";
@@ -30,11 +30,17 @@ export async function displaySinglePost(post) {
 
   if (post.author.name === localStorage.getItem("userName")) {
     const buttonWrapper = document.createElement("div");
+    buttonWrapper.className = "mt-4";
+
     const createDeleteButton = document.createElement("button");
     const createEditButton = document.createElement("button");
 
     createDeleteButton.innerHTML = "Delete Post";
     createEditButton.innerHTML = "Edit Post";
+
+    createDeleteButton.className = "bg-red-500 text-white font-semibold py-2 px-4 rounded-lg hover:bg-red-700 transition duration-200";
+    createEditButton.className = "bg-cyan-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-cyan-700 transition duration-200 mr-2";
+    
 
     buttonWrapper.append(createEditButton, createDeleteButton);
 
