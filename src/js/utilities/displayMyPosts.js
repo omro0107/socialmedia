@@ -1,27 +1,35 @@
-export function displayMyPosts(blogPost) {
-  let blogPostList = document.querySelector(".myBlogPosts-list");
-  blogPostList.innerHTML = "";
+export function displayMyPosts(blogPosts) {
+  let blogPostList = document.querySelector(".myPosts-list");
+  blogPostList.innerHTML = ""; // Clear previous content
 
-  blogPost.forEach((element) => {
-    let postContainer = document.createElement("div");
+  blogPosts.forEach((element) => {
+    let postCard = document.createElement("div");
+    postCard.className = "bg-white shadow-md rounded-lg overflow-hidden m-4 cursor-pointer transition-transform transform hover:scale-105";
+
     let blogPostImage = document.createElement("img");
-    let postContainerBottom = document.createElement("div");
-    let postContainerBottomHeader = document.createElement("h2");
-
-    postContainer.className = "post-container flex-c";
-    blogPostImage.className = "blogpost-image";
-    postContainerBottom.className = "postcontainer-bottom";
-    postContainerBottomHeader.className = "postContainerHeader";
-
+    blogPostImage.className = "w-full h-48 object-cover";
     blogPostImage.setAttribute("src", element.media?.url || "");
     blogPostImage.setAttribute("alt", element.media?.alt || "No description available");
-    postContainerBottomHeader.innerHTML = `${element.title}`;
 
-    postContainer.append(blogPostImage);
-    postContainer.append(postContainerBottom);
-    postContainerBottom.append(postContainerBottomHeader);
-    blogPostList.append(postContainer);
-    postContainer.addEventListener("click", async () => {
+    let postContent = document.createElement("div");
+    postContent.className = "p-4";
+
+    let postTitle = document.createElement("h3");
+    postTitle.className = "text-lg font-semibold mb-2";
+    postTitle.innerHTML = `${element.title}`; 
+
+    let postDescription = document.createElement("p");
+    postDescription.className = "text-gray-600";
+    postDescription.innerHTML = element.description || "No description available"; 
+
+    postContent.appendChild(postTitle);
+    postContent.appendChild(postDescription);
+    postCard.appendChild(blogPostImage);
+    postCard.appendChild(postContent);
+    
+    blogPostList.appendChild(postCard);
+
+    postCard.addEventListener("click", async () => {
       window.location.href = `/post/?id=${element.id}`;
     });
   });

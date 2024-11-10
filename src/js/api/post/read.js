@@ -1,5 +1,6 @@
 import { headers } from '../headers';
 import { API_SOCIAL_POSTS } from '../constants';
+import { API_SOCIAL_MY_POSTS } from '../constants';
 import { displayMyPosts } from "../../utilities/displayMyPosts";
 import { blogPostsBuilder } from "../../utilities/displayPosts";
 
@@ -46,15 +47,13 @@ export async function readPosts(limit = 12, page = 1, tag) {
     blogPostsBuilder(postObjectsToRender);
   } catch (error) {
     console.error('Error fetching posts:', error);
-    const errorMessage = document.createElement('p');
-    errorMessage.textContent = 'Failed to load posts. Please try again later.';
-    document.querySelector('.post-list').appendChild(errorMessage);
+    displayError('Failed to load general posts. Please try again later.');
   }
 }
 
 export async function readMyPosts(limit = 6, page = 1, tag) {
   try {
-    const response = await fetch(API_SOCIAL_MY_USER_POSTS, {
+    const response = await fetch(API_SOCIAL_MY_POSTS, {
       method: "GET",
       headers: headers(),
     });
@@ -63,10 +62,11 @@ export async function readMyPosts(limit = 6, page = 1, tag) {
     const postObjects = resultJson.data;
     const postObjectsToRender = postObjects.slice(0, limit);
 
-    displayMyPosts(postObjectsToRender);
+  
+  displayMyPosts(postObjectsToRender);
   } catch (error) {
-    console.error(error);
-    throw error;
+    console.error('Error fetching posts:', error);
+    displayError('Failed to load your posts. Please try again later.');
   }
 }
 
@@ -86,4 +86,11 @@ export async function readPostsByUser(username, limit = 12, page = 1, tag) {
     console.error("Error fetching posts", error);
     return null;
   }
+}
+
+export function displayError(message) {
+  const errorMessage = document.createElement('p');
+  errorMessage.textContent = message;
+  errorMessage.className = 'text-red-500';
+  document.querySelector('.error-message').appendChild(errorMessage);
 }
