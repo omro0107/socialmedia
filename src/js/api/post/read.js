@@ -2,7 +2,7 @@ import { headers } from '../headers';
 import { API_SOCIAL_POSTS } from '../constants';
 import { API_SOCIAL_MY_POSTS } from '../constants';
 import { displayMyPosts } from "../../utilities/displayMyPosts";
-import { blogPostsBuilder } from "../../utilities/displayPosts";
+import { postBuilder } from "../../utilities/displayPosts";
 
 
 export async function readSinglePost() {
@@ -44,7 +44,7 @@ export async function readPosts(limit = 12, page = 1, tag) {
     const postObjects = resultJson.data || []; 
     const postObjectsToRender = postObjects.slice(0, limit); 
 
-    blogPostsBuilder(postObjectsToRender);
+    postBuilder(postObjectsToRender);
   } catch (error) {
     console.error('Error fetching posts:', error);
     displayError('Failed to load general posts. Please try again later.');

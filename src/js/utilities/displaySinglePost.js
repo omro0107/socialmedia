@@ -9,15 +9,15 @@ export async function displaySinglePost(post) {
   const createdAtFormatted = formatDate(createdAt);
   const updatedAtFormatted = formatDate(updatedAt);
 
-  const blogPostImage = document.getElementById("image");
+  const postImage = document.getElementById("image");
   const header = document.getElementById("postHeader");
   const postAuthor = document.getElementById("postAuthor");
   const postText = document.getElementById("post-content");
   const dateCreated = document.getElementById("published");
   const updatedTime = document.getElementById("updated");
 
-  blogPostImage.src = post.media?.url || "";
-  blogPostImage.setAttribute("alt", post.media?.alt || "Missing alt text");
+  postImage.src = post.media?.url || "";
+  postImage.setAttribute("alt", post.media?.alt || "Missing alt text");
   postAuthor.innerText = `Published by: ${post.author.name}`;
   header.innerText = post.title;
   postText.innerText = post.body;

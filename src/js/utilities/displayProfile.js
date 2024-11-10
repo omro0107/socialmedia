@@ -1,28 +1,43 @@
-export function displayUser() {
-  const domBody = document.getElementById("profileBody");
-  const createUserBanner = document.createElement("img");
-  const createAvatarImg = document.createElement("img");
-  const createUserName = document.createElement("h2");
-  const createUserBio = document.createElement("p");
-
-  createUserBanner.setAttribute("id", "userBanner");
-  createAvatarImg.setAttribute("id", "avatarImg");
-
+export function displayUser () {
+  const userProfileContainer = document.getElementById("userProfile");
+  
   let userData;
   if (localStorage.clickedUserData) {
-    userData = JSON.parse(localStorage.clickedUserData);
+      userData = JSON.parse(localStorage.clickedUserData);
   } else {
-    userData = JSON.parse(localStorage.myUserData);
+      userData = JSON.parse(localStorage.myUserData);
   }
 
-  createUserBanner.src = userData.data.banner.url;
-  createUserBanner.setAttribute("alt", userData.data.banner.alt);
+  const userBanner = document.createElement("div");
+  userBanner.className = "w-full h-48 bg-cover bg-center rounded-lg";
+  userBanner.style.backgroundImage = `url(${userData.data.banner.url})`;
+  
+  const avatarImg = document.createElement("img");
+  avatarImg.src = userData .data.avatar.url;
+  avatarImg.setAttribute("alt", userData.data.avatar.alt);
+  avatarImg.className = "absolute top-[-30px] left-4 w-24 h-24 rounded-full border-4 border-white shadow-lg";
 
-  createAvatarImg.src = userData.data.avatar.url;
-  createAvatarImg.setAttribute("alt", userData.data.avatar.alt);
+  const userName = document.createElement("h2");
+  userName.innerHTML = userData.data.name;
+  userName.className = "text-xl font-semibold text-center mt-16";
 
-  createUserName.innerHTML = userData.data.name;
-  createUserBio.innerHTML = userData.data.bio;
+  const userBio = document.createElement("p");
+  userBio.innerHTML = userData.data.bio;
+  userBio.className = "text-center text-gray-600 mt-2";
 
-  domBody.prepend(createUserBanner, createAvatarImg, createUserName, createUserBio);
+  const userStats = document.createElement("div");
+  userStats.className = "text-center mt-4";
+  userStats.innerHTML = `
+      <p class="text-sm">Posts: ${userData.data._count.posts}</p>
+      <p class="text-sm">Followers: ${userData.data._count.followers}</p>
+      <p class="text-sm">Following: ${userData.data._count.following}</p>
+  `;
+
+  userProfileContainer.appendChild(userBanner);
+  userProfileContainer.appendChild(avatarImg);
+  userProfileContainer.appendChild(userName);
+  userProfileContainer.appendChild(userBio);
+  userProfileContainer.appendChild(userStats);
 }
+
+document.addEventListener("DOMContentLoaded", displayUser );
