@@ -8,26 +8,43 @@
   </head>
   <body class="bg-stone-100">
     <header class="bg-stone-400">
-      <a href="/">Home</a>
+      <div class="p-4">
+        <a href="/">
+        <img src="/images/DALLE2~1.jpg" alt="Logo" class="w-40 h-40 rounded-full object-cover"/></a>
+      </div>
+      <nav class="hidden md:flex container mx-auto justify-center">
+        <a href="/profile/" class="py-4 px-2 text-cyan-950 hover:text-cyan-200">Profile</a>
+        <a href="/post/create/" class="py-4 px-2 text-cyan-950 hover:text-cyan-200"> Create Post </a>
+        <button id="logout-button" class="bg-cyan-600 rounded text-white font-bold py-2 px-4 hover:bg-cyan-200">Logout</button>
+      </nav>
+      <div id="loader" class="loader">
+        <i class="fa fa-spinner fa-spin"></i>
+      </div>
     </header>
-    <main class="container mx-auto px-4 py-8">
-    <h1 class="text-3xl font-bold mb-4 text-cyan-950">Post Page</h1>
+    <main class="container mx-auto px-4 py-8 text-center">
       <div class="mb-6">
-        <img id="image" src="#" alt="Post Image" class="w-full rounded-lg shadow-md">
+        <img id="image" src="#" alt="Post Image" class="w-full max-w-[400px] rounded-lg shadow-md mx-auto">
       </div>
       <div class="mb-4">
         <h1 id="postHeader" class="text-2xl font-semibold text-cyan-950"> Placeholder title </h1>
       </div>
       <div class="mb-4">
-        <p id="postAuthor" class="text-cyan-950"> Post Author </p>
+        <p id="postAuthor" class="text-cyan-400"> Post Author </p>
         <p id="post-content" class="text-cyan-950 leading-relaxed">
         </p>
         <div class="mb-4">
-          <p id="published" class="text-cyan-950"> Publication Date </p>
-          <p id="updated" class="text-cyan-950"> Updated Time </p>
+          <p id="published" class="text-cyan-400"> Publication Date </p>
+          <p id="updated" class="text-cyan-400"> Updated Time </p>
         </div>
       </div>
   </main>
-    
+  <footer class="bg-stone-400 text-white text-center p-4 mt-6">
+    <p>Copyright &copy; 2024</p>
+  </footer>
+  <div class="md:hidden fixed bottom-0 left-0 right-0 bg-stone-400 flex justify-around border-t border-gray-300">
+    <a href="/profile/"><button class="py-2 text-cyan-950">Profile</button></a>
+    <a href="/post/create/"><button class="py-2 text-cyan-950">Create</button></a>
+    <button id="logout-button-mobile" class="bg-cyan-600 rounded text-white font-bold py-2 px-4 hover:bg-cyan-200">Logout</button>
+  </div>
   </body>
 </html>

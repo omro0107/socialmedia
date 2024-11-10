@@ -7,11 +7,17 @@
     <title>Noroff FED2 JS2 CA</title>
     <script type="module" src="/src/app.js"></script>
   </head>
-  <body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
-    <header>
-
+  <body class="bg-stone-300 flex flex-col min-h-screen">
+    <header class="bg-stone-400">
+      <div class="p-4">
+        <a href="/">
+        <img src="/images/DALLE2~1.jpg" alt="Logo" class="w-40 h-40 rounded-full object-cover"/></a>
+      </div>
+      <div id="loader" class="loader">
+        <i class="fa fa-spinner fa-spin"></i>
+      </div>
     </header>
-    <main>
+    <main class="flex-grow flex items-center justify-center">
       <div class="bg-white rounded-lg shadow-md p-8 max-w-md w-full">
         <h1 class="text-2xl font-bold mb-6 text-center">Register</h1>
         <form id="register-form">
@@ -37,5 +43,8 @@
         </form>
       </div>
     </main>
+    <footer class="bg-stone-400 text-white text-center p-4 mt-6">
+      <p>Copyright &copy; 2024</p>
+    </footer>
   </body>
 </html>

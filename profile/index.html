@@ -2,14 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Noroff FED2 JS2 CA</title>
-    <script type="module" src="/src/app.js"></script>
+    <script type="module" src="/src/app.js" defer></script>
 </head>
-<body id="profileBody" class="bg-stone-300 p-4">
+<body id="profileBody" class="bg-stone-300">
   <header class="bg-stone-400">
-    <a  href="/"><img src="/images/DALLE2~1.jpg" alt="Logo" class="max-w-20 py-4"/></a>
-    <nav class="container mx-auto flex justify-center">
+    <div class="p-4">
+      <a href="/">
+      <img src="/images/DALLE2~1.jpg" alt="Logo" class="w-40 h-40 rounded-full object-cover"/></a>
+    </div>
+    <nav class="hidden md:flex container mx-auto justify-center">
       <a href="/post/create/" class="py-4 px-2 text-cyan-950 hover:text-cyan-200"> Create Post </a>
       <button id="logout-button" class="bg-cyan-600 rounded text-white font-bold py-2 px-4 hover:bg-cyan-200">Logout</button>
     </nav>
@@ -19,18 +22,18 @@
   </header>
   <main class="max-w-lg mx-auto mt-6 bg-white p-6 rounded-lg shadow-md">
     <div id="userProfile"></div>
-    <form name="updateProfile" id="updateProfile">
+    <form name="updateProfile" id="updateProfile" class="">
         <h2 class="text-xl font-semibold mb-4">Update Profile</h2>
         <div class="mb-4">
-          <label for="banner" id="banner" class="block text-sm font-medium text-cyan-950">Banner</label>
+          <label for="bannerInput" class="block text-sm font-medium text-cyan-950">Banner</label>
           <input type="url" name="banner" id="bannerInput" required maxlength="300" placeholder="Banner url" class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-cyan-200"/>
         </div>
         <div class="mb-4">
-          <label for="pfp" id="pfp" r="pfp" class="block text-sm font-medium text-cyan-950">Profile Picture</label>
-          <input type="text" name="pfp" id="pfpInput" required maxlength="300" placeholder="Image url" class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-cyan-200"/>
+          <label for="pfpInput" class="block text-sm font-medium text-cyan-950">Profile Picture</label>
+          <input type="url" name="pfp" id="pfpInput" required maxlength="300" placeholder="Image url" class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-cyan-200"/>
         </div>
         <div class="mb-4">
-          <label for="bio" id="bio" class="block text-sm font-medium text-cyan-950">Bio</label>
+          <label for="bioInput" class="block text-sm font-medium text-cyan-950">Bio</label>
           <textarea name="bio" id="bioInput" rows="4" maxlength="1000" placeholder="About you" class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-cyan-200"></textarea>
         </div>
         <button id="updateProfileButton" type="submit" class="w-full bg-cyan-600 text-white font-semibold py-2 rounded-md hover:bg-cyan-700 transition duration-200">Update Profile</button>
@@ -38,8 +41,13 @@
         <p id="successMessage" style="color: green;"></p>
     </form>
   </main>
-  <footer>
-    <p container mx-auto>Copyright &copy; 2024</p>
+  <footer class="bg-stone-400 text-white text-center p-4 mt-6">
+    <p>Copyright &copy; 2024</p>
   </footer>
+  <div class="md:hidden fixed bottom-0 left-0 right-0 bg-stone-400 flex justify-around border-t border-gray-300">
+    <a href="/profile/"><button class="py-2 text-cyan-950">Profile</button></a>
+    <a href="/post/create/"><button class="py-2 text-cyan-950">Create</button></a>
+    <button id="logout-button-mobile" class="bg-cyan-600 rounded text-white font-bold py-2 px-4">Logout</button>
+  </div>
 </body>
 </html>
